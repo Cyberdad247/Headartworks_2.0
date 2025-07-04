@@ -1,6 +1,10 @@
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
-import {Image, Money} from '@shopify/hydrogen';
+import {Image} from '@shopify/hydrogen';
+import {Hero} from '~/components/Hero';
+import {ProductItem} from '~/components/ProductItem';
+import {MediaCarousel} from '~/components/MediaCarousel';
+import {MediaOptimizedVideo} from '~/components/MediaOptimizedVideo';
 
 /**
  * @type {MetaFunction}
@@ -63,6 +67,13 @@ export default function Homepage() {
   const data = useLoaderData();
   return (
     <div className="home">
+      <Hero 
+        videoSrc="/videos/hero-video.mp4"
+        title="Welcome to Head Art Works"
+        subtitle="Where tradition meets innovation. Our passion for quality and craftsmanship is evident in every product we create. Using only the finest natural ingredients."
+        ctaText="Shop Now"
+        ctaLink="/collections/all"
+      />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
@@ -107,21 +118,12 @@ function RecommendedProducts({products}) {
             <div className="recommended-products-grid">
               {response
                 ? response.products.nodes.map((product) => (
-                    <Link
+                    <ProductItem
                       key={product.id}
+                      product={product}
+                      loading="lazy"
                       className="recommended-product"
-                      to={`/products/${product.handle}`}
-                    >
-                      <Image
-                        data={product.images.nodes[0]}
-                        aspectRatio="1/1"
-                        sizes="(min-width: 45em) 20vw, 50vw"
-                      />
-                      <h4>{product.title}</h4>
-                      <small>
-                        <Money data={product.priceRange.minVariantPrice} />
-                      </small>
-                    </Link>
+                    />
                   ))
                 : null}
             </div>

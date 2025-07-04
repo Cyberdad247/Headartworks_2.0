@@ -1,4 +1,5 @@
 import {useNonce, getShopAnalytics, Analytics} from '@shopify/hydrogen';
+import {VideoProvider} from '~/components/VideoContext';
 import {
   Links,
   Meta,
@@ -14,6 +15,7 @@ import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
 import {PageLayout} from '~/components/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
+import infiniteScrollStyles from '~/styles/infinite-scroll.css?url';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -55,6 +57,7 @@ export function links() {
       href: 'https://shop.app',
     },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'stylesheet', href: infiniteScrollStyles},
   ];
 }
 
@@ -152,8 +155,13 @@ export function Layout({children}) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        // For the self-closing elements (lines 158-159), change:
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
+        
+        // To:
+        <link rel="stylesheet" href={resetStyles} />
+        <link rel="stylesheet" href={appStyles} />
         <Meta />
         <Links />
       </head>
@@ -164,7 +172,9 @@ export function Layout({children}) {
             shop={data.shop}
             consent={data.consent}
           >
-            <PageLayout {...data}>{children}</PageLayout>
+            <VideoProvider>
+              <PageLayout {...data}>{children}</PageLayout>
+            </VideoProvider>
           </Analytics.Provider>
         ) : (
           children

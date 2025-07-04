@@ -1,13 +1,15 @@
-import {useLoaderData, Link} from '@remix-run/react';
-import {getPaginationVariables, Image, Money} from '@shopify/hydrogen';
-import {useVariantUrl} from '~/lib/variants';
+import {useLoaderData} from '@remix-run/react';
+import {getPaginationVariables} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
+import {ProductItem} from '~/components/ProductItem';
+import {useInView} from 'react-intersection-observer';
+import {useEffect} from 'react';
 
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = () => {
-  return [{title: `Hydrogen | Products`}];
+  return [{title: 'Hydrogen | Products'}];
 };
 
 /**
@@ -49,20 +51,30 @@ async function loadCriticalData({context, request}) {
  * Make sure to not throw any errors here, as it will cause the page to 500.
  * @param {LoaderFunctionArgs}
  */
-function loadDeferredData({context}) {
+function loadDeferredData() {
   return {};
 }
 
 export default function Collection() {
-  /** @type {LoaderReturnData} */
   const {products} = useLoaderData();
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+  });
+
+  useEffect(() => {
+    if (inView && products.pageInfo.hasNextPage) {
+      // Trigger next page load
+      window.dispatchEvent(new CustomEvent('load-more-products'));
+    }
+  }, [inView, products.pageInfo.hasNextPage]);
 
   return (
     <div className="collection">
       <h1>Products</h1>
       <PaginatedResourceSection
         connection={products}
-        resourcesClassName="products-grid"
+        resourcesClassName="products-grid infinite-scroll-grid"
       >
         {({node: product, index}) => (
           <ProductItem
@@ -72,41 +84,16 @@ export default function Collection() {
           />
         )}
       </PaginatedResourceSection>
+      {products.pageInfo.hasNextPage && (
+        <div ref={ref} className="loading-trigger">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
     </div>
   );
 }
 
-/**
- * @param {{
- *   product: ProductItemFragment;
- *   loading?: 'eager' | 'lazy';
- * }}
- */
-function ProductItem({product, loading}) {
-  const variantUrl = useVariantUrl(product.handle);
-  return (
-    <Link
-      className="product-item"
-      key={product.id}
-      prefetch="intent"
-      to={variantUrl}
-    >
-      {product.featuredImage && (
-        <Image
-          alt={product.featuredImage.altText || product.title}
-          aspectRatio="1/1"
-          data={product.featuredImage}
-          loading={loading}
-          sizes="(min-width: 45em) 400px, 100vw"
-        />
-      )}
-      <h4>{product.title}</h4>
-      <small>
-        <Money data={product.priceRange.minVariantPrice} />
-      </small>
-    </Link>
-  );
-}
+// ProductItem component is now imported from components directory
 
 const PRODUCT_ITEM_FRAGMENT = `#graphql
   fragment MoneyProductItem on MoneyV2 {
@@ -162,5 +149,5 @@ const CATALOG_QUERY = `#graphql
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
-/** @typedef {import('storefrontapi.generated').ProductItemFragment} ProductItemFragment */
+/** @typedef {import('storefront-api.generated').ProductItemFragment} ProductItemFragment */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */

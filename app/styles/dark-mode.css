@@ -1,0 +1,114 @@
+/* Dark mode styles */
+
+/* Base dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark mode header styles */
+body.dark-mode .header {
+  background-color: rgba(18, 18, 18, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .header a,
+body.dark-mode .header button,
+body.dark-mode .header-logo-text {
+  color: #e0e0e0;
+}
+
+body.dark-mode .header-menu-item {
+  color: #e0e0e0;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Sun icon (light mode) */
+.dark-mode-toggle .sun {
+  display: block;
+  font-size: 1.5rem;
+  color: #121212;
+}
+
+/* Moon icon (dark mode) */
+.dark-mode-toggle .moon {
+  display: none;
+  font-size: 1.5rem;
+  color: #e0e0e0;
+}
+
+/* Toggle icon visibility based on mode */
+body.dark-mode .dark-mode-toggle .sun {
+  display: none;
+}
+
+body.dark-mode .dark-mode-toggle .moon {
+  display: block;
+}
+
+/* Dark mode video styles */
+.dark-mode-video {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+/* Dark mode aside styles */
+body.dark-mode aside {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode aside header {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode footer */
+body.dark-mode .footer {
+  background-color: #0a0a0a;
+}
+
+/* Dark mode product cards */
+body.dark-mode .product-item {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode form elements */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaa;
+}

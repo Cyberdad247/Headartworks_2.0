@@ -8,8 +8,8 @@ import {
   useSelectedOptionInUrlParam,
 } from '@shopify/hydrogen';
 import {ProductPrice} from '~/components/ProductPrice';
-import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
+import {ProductMediaGallery} from '~/components/product/ProductMediaGallery';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -101,9 +101,46 @@ export default function Product() {
 
   const {title, descriptionHtml} = product;
 
+  // Prepare media items for the gallery
+  const productMedia = [];
+  
+  // Add the selected variant image or first available image
+  if (selectedVariant?.image) {
+    productMedia.push({
+      type: 'image',
+      data: selectedVariant.image,
+      alt: `${product.title} - ${selectedVariant.title}`
+    });
+  }
+  
+  // Add additional product images if available
+  if (product.images?.nodes?.length > 0) {
+    // Skip the first image if it's the same as the variant image
+    const startIndex = selectedVariant?.image ? 1 : 0;
+    
+    for (let i = startIndex; i < product.images.nodes.length; i++) {
+      const image = product.images.nodes[i];
+      if (selectedVariant?.image && image.id === selectedVariant.image.id) {
+        continue; // Skip duplicate images
+      }
+      
+      productMedia.push({
+        type: 'image',
+        data: image,
+        alt: image.altText || `${product.title} - Image ${i + 1}`
+      });
+    }
+  }
+  
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      <ProductMediaGallery 
+        media={productMedia}
+        selectedVariant={selectedVariant}
+        autoplay={false}
+        showControls={true}
+        className="product-media-gallery"
+      />
       <div className="product-main">
         <h1>{title}</h1>
         <ProductPrice

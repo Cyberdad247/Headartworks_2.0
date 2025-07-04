@@ -8,6 +8,23 @@
   --color-light: #fff;
 }
 
+/* Import component styles */
+@import 'hero.css';
+@import 'product-animations.css';
+@import 'media-components.css';
+@import 'blog-media.css';
+@import 'header-transitions.css';
+@import 'dark-mode.css';
+@import 'infinite-scroll-gallery.css';
+
+/* App-specific styles */
+
+/* Body adjustments for video completion */
+body.video-completed {
+  padding-top: var(--header-height);
+  transition: padding-top 0.5s ease-in-out;
+}
+
 img {
   border-radius: 4px;
 }

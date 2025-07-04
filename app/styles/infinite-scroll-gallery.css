@@ -1,0 +1,229 @@
+/* Infinite Scroll Gallery Styles - Optimized Version */
+
+/* Main container */
+.infinite-scroll-gallery {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  position: relative;
+  contain: layout style; /* CSS containment for better performance */
+  will-change: contents; /* Hint to browser for optimization */
+}
+
+/* Light/Dark mode variants - with smooth transitions */
+.infinite-scroll-gallery {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.infinite-scroll-gallery.light {
+  background-color: var(--color-light, #ffffff);
+  color: var(--color-dark, #1a1a1a);
+}
+
+.infinite-scroll-gallery.dark {
+  background-color: var(--color-dark, #1a1a1a);
+  color: var(--color-light, #ffffff);
+}
+
+/* Grid layout - optimized for performance */
+.infinite-scroll-gallery-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr); /* Default, can be overridden by inline style */
+  gap: 16px; /* Default, can be overridden by inline style */
+  contain: layout style; /* CSS containment for better performance */
+  will-change: transform; /* Hint to browser for optimization */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering in some browsers */
+}
+
+/* Gallery items - with accessibility and performance improvements */
+.infinite-scroll-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  contain: content; /* CSS containment for better performance */
+  will-change: transform, box-shadow; /* Hint to browser for optimization */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering in some browsers */
+  /* Accessibility improvements */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.infinite-scroll-gallery-item:hover,
+.infinite-scroll-gallery-item:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyboard focus styles for accessibility */
+.infinite-scroll-gallery-item:focus-visible {
+  outline: 2px solid var(--color-primary, #0066cc);
+  outline-offset: 2px;
+}
+
+/* Media content - optimized for performance */
+.infinite-scroll-gallery-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform; /* Hint to browser for optimization */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering in some browsers */
+  /* Prevent layout shifts during loading */
+  content-visibility: auto; /* Modern browsers only - improves performance */
+  contain: size layout; /* CSS containment for better performance */
+}
+
+.infinite-scroll-gallery-item:hover .infinite-scroll-gallery-media,
+.infinite-scroll-gallery-item:focus-visible .infinite-scroll-gallery-media {
+  transform: scale(1.05);
+}
+
+/* Add progressive loading effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.infinite-scroll-gallery-media[loading="lazy"] {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Video overlay - with accessibility improvements */
+.infinite-scroll-gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Accessibility improvements */
+  pointer-events: none; /* Allow clicks to pass through to the item */
+}
+
+.infinite-scroll-gallery-item:hover .infinite-scroll-gallery-overlay,
+.infinite-scroll-gallery-item:focus-visible .infinite-scroll-gallery-overlay {
+  opacity: 1;
+}
+
+/* Add screen reader text for accessibility */
+.infinite-scroll-gallery-item .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Play icon - with improved animations and accessibility */
+.infinite-scroll-gallery-play-icon {
+  color: white;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease;
+  will-change: transform; /* Hint to browser for optimization */
+  transform: translateZ(0); /* Force GPU acceleration */
+  /* Accessibility improvements */
+  pointer-events: none; /* Allow clicks to pass through to the item */
+}
+
+.infinite-scroll-gallery-item:hover .infinite-scroll-gallery-play-icon,
+.infinite-scroll-gallery-item:focus-visible .infinite-scroll-gallery-play-icon {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Add pulse animation for play icon */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.infinite-scroll-gallery-item:hover .infinite-scroll-gallery-play-icon {
+  animation: pulse 2s infinite;
+}
+
+/* Loader section */
+.infinite-scroll-gallery-loader {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loading indicator */
+.infinite-scroll-gallery-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infinite-scroll-gallery-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--color-primary, #0066cc);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+.dark .infinite-scroll-gallery-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--color-primary, #0066cc);
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Load more indicator */
+.infinite-scroll-gallery-load-more {
+  padding: 1rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .infinite-scroll-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .infinite-scroll-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .infinite-scroll-gallery-item {
+    aspect-ratio: 16/9;
+  }
+}

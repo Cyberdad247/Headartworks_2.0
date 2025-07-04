@@ -1,5 +1,6 @@
 import {useLoaderData} from '@remix-run/react';
 import {Image} from '@shopify/hydrogen';
+import {BlogMediaGallery} from '~/components/BlogMediaGallery';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -80,6 +81,24 @@ export default function Article() {
       </h1>
 
       {image && <Image data={image} sizes="90vw" loading="eager" />}
+      
+      {/* Example of using BlogMediaGallery with article content */}
+      {article.image && (
+        <BlogMediaGallery
+          media={[
+            {
+              type: 'image',
+              data: article.image,
+              alt: article.title
+            }
+          ]}
+          caption={article.title}
+          autoplay={false}
+          showControls={true}
+          className="article-media-gallery"
+        />
+      )}
+      
       <div
         dangerouslySetInnerHTML={{__html: contentHtml}}
         className="article"

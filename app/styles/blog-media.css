@@ -1,0 +1,45 @@
+/* Blog Media Components Styles */
+
+/* Blog Media Gallery */
+.blog-media-gallery {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.blog-media-gallery-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.blog-media-gallery-container {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-media-gallery-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+}
+
+/* Article Media Gallery */
+.article-media-gallery {
+  margin: 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-media-gallery-title {
+    font-size: 1.2rem;
+  }
+  
+  .blog-media-gallery-caption {
+    font-size: 0.8rem;
+  }
+}
