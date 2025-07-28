@@ -1,0 +1,80 @@
+{
+  "common": {
+    "welcome": "Bienvenue chez Head Artworks",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "search": "Rechercher",
+    "menu": "Menu",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "collections": "Collections",
+    "products": "Produits",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact",
+    "account": "Compte",
+    "cart": "Panier",
+    "checkout": "Commander"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "empty": "Votre panier est vide",
+    "subtotal": "Sous-total",
+    "total": "Total",
+    "checkout": "Procéder au Paiement",
+    "continue_shopping": "Continuer les Achats",
+    "remove": "Supprimer",
+    "quantity": "Quantité",
+    "update": "Mettre à Jour le Panier"
+  },
+  "product": {
+    "price": "Prix",
+    "sale_price": "Prix de Vente",
+    "regular_price": "Prix Régulier",
+    "add_to_cart": "Ajouter au Panier",
+    "sold_out": "Épuisé",
+    "unavailable": "Indisponible",
+    "in_stock": "En Stock",
+    "out_of_stock": "Rupture de Stock",
+    "quantity": "Quantité",
+    "description": "Description",
+    "details": "Détails",
+    "reviews": "Avis",
+    "related_products": "Produits Connexes"
+  },
+  "account": {
+    "sign_in": "Se Connecter",
+    "sign_out": "Se Déconnecter",
+    "register": "S'inscrire",
+    "my_account": "Mon Compte",
+    "orders": "Commandes",
+    "addresses": "Adresses",
+    "profile": "Profil",
+    "order_history": "Historique des Commandes",
+    "edit_profile": "Modifier le Profil"
+  },
+  "forms": {
+    "email": "E-mail",
+    "password": "Mot de Passe",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "address": "Adresse",
+    "city": "Ville",
+    "country": "Pays",
+    "postal_code": "Code Postal",
+    "phone": "Téléphone",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer"
+  },
+  "seo": {
+    "default_title": "Head Artworks - Art et Design Premium",
+    "default_description": "Découvrez des œuvres d'art uniques et des designs premium chez Head Artworks. Achetez notre collection curatée d'art contemporain, sculptures et œuvres créatives.",
+    "default_keywords": "art, design, art contemporain, sculptures, art premium, œuvres créatives, Head Artworks"
+  }
+}

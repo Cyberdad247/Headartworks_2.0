@@ -4,20 +4,21 @@ import {Money} from '@shopify/hydrogen';
  * @param {{
  *   price?: MoneyV2;
  *   compareAtPrice?: MoneyV2 | null;
+ *   currency?: string;
  * }}
  */
-export function ProductPrice({price, compareAtPrice}) {
+export function ProductPrice({price, compareAtPrice, currency}) {
   return (
     <div className="product-price">
       {compareAtPrice ? (
         <div className="product-price-on-sale">
-          {price ? <Money data={price} /> : null}
+          {price ? <Money data={price} as="span" /> : null}
           <s>
-            <Money data={compareAtPrice} />
+            <Money data={compareAtPrice} as="span" />
           </s>
         </div>
       ) : price ? (
-        <Money data={price} />
+        <Money data={price} as="span" />
       ) : (
         <span>&nbsp;</span>
       )}

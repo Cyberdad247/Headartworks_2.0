@@ -6,6 +6,10 @@
   --header-height: 64px;
   --color-dark: #000;
   --color-light: #fff;
+  --border-color: #ccc;
+  --background-color: #fff;
+  --text-color: #000;
+  --focus-color: #0066ff;
 }
 
 /* Import component styles */
@@ -16,6 +20,7 @@
 @import 'header-transitions.css';
 @import 'dark-mode.css';
 @import 'infinite-scroll-gallery.css';
+@import 'filters.css';
 
 /* App-specific styles */
 
@@ -216,6 +221,22 @@ button.reset:hover:not(:has(> *)) {
   display: flex;
   grid-gap: 1rem;
   margin-left: auto;
+}
+
+.language-selector select,
+.currency-selector select {
+  padding: 0.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--background-color);
+  color: var(--text-color);
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.language-selector select:focus,
+.currency-selector select:focus {
+  outline: 2px solid var(--focus-color);
 }
 
 /*

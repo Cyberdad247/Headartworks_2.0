@@ -3,6 +3,10 @@ import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
 import {SearchForm} from '~/components/SearchForm';
 import {SearchResults} from '~/components/SearchResults';
 import {getEmptyPredictiveSearchResult} from '~/lib/search';
+import {
+  ENHANCED_SEARCH_QUERY,
+  ENHANCED_PREDICTIVE_SEARCH_QUERY
+} from '~/graphql/searchQueries';
 
 /**
  * @type {MetaFunction}
@@ -222,7 +226,7 @@ async function regularSearch({request, context}) {
   const term = String(url.searchParams.get('q') || '');
 
   // Search articles, pages, and products for the `q` term
-  const {errors, ...items} = await storefront.query(SEARCH_QUERY, {
+  const {errors, ...items} = await storefront.query(ENHANCED_SEARCH_QUERY, {
     variables: {...variables, term},
   });
 
@@ -386,7 +390,7 @@ async function predictiveSearch({request, context}) {
 
   // Predictively search articles, collections, pages, products, and queries (suggestions)
   const {predictiveSearch: items, errors} = await storefront.query(
-    PREDICTIVE_SEARCH_QUERY,
+    ENHANCED_PREDICTIVE_SEARCH_QUERY,
     {
       variables: {
         // customize search options as needed

@@ -146,6 +146,7 @@ export default function Product() {
         <ProductPrice
           price={selectedVariant?.price}
           compareAtPrice={selectedVariant?.compareAtPrice}
+          currency={selectedVariant?.price?.currencyCode}
         />
         <br />
         <ProductForm

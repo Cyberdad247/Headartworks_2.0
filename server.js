@@ -4,6 +4,7 @@
 // eslint-disable-next-line import/no-unresolved
 import * as remixBuild from 'virtual:remix/server-build';
 import {storefrontRedirect} from '@shopify/hydrogen';
+import {handleI18n} from '~/lib/i18nMiddleware';
 import {createRequestHandler} from '@shopify/remix-oxygen';
 import {createAppLoadContext} from '~/lib/context';
 
@@ -19,11 +20,20 @@ export default {
    */
   async fetch(request, env, executionContext) {
     try {
+      // Handle i18n logic
+      const i18nResult = await handleI18n(request, env, executionContext);
+      if (i18nResult instanceof Response) {
+        return i18nResult;
+      }
+
       const appLoadContext = await createAppLoadContext(
         request,
         env,
         executionContext,
       );
+      
+      // Add language to context
+      appLoadContext.language = i18nResult.language;
 
       /**
        * Create a Remix request handler and pass
@@ -37,6 +47,11 @@ export default {
 
       const response = await handleRequest(request);
 
+      // Set language cookie if we have one
+      if (i18nResult.cookie) {
+        response.headers.set('Set-Cookie', i18nResult.cookie);
+      }
+      
       if (appLoadContext.session.isPending) {
         response.headers.set(
           'Set-Cookie',

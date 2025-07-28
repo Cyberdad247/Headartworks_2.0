@@ -1,0 +1,79 @@
+.search-results-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.filter-sidebar {
+  width: 250px;
+  padding: 1rem;
+  background: var(--color-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.price-range {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.price-range input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-primary);
+}
+
+.price-display {
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.filter-sidebar label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  padding: 0.2rem 0;
+}
+
+.filter-sidebar input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-pill {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.filter-pill button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}

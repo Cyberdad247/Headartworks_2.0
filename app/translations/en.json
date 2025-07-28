@@ -1,0 +1,80 @@
+{
+  "common": {
+    "welcome": "Welcome to Head Artworks",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "search": "Search",
+    "menu": "Menu",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "navigation": {
+    "home": "Home",
+    "collections": "Collections",
+    "products": "Products",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "account": "Account",
+    "cart": "Cart",
+    "checkout": "Checkout"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "continue_shopping": "Continue Shopping",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "update": "Update Cart"
+  },
+  "product": {
+    "price": "Price",
+    "sale_price": "Sale Price",
+    "regular_price": "Regular Price",
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "unavailable": "Unavailable",
+    "in_stock": "In Stock",
+    "out_of_stock": "Out of Stock",
+    "quantity": "Quantity",
+    "description": "Description",
+    "details": "Details",
+    "reviews": "Reviews",
+    "related_products": "Related Products"
+  },
+  "account": {
+    "sign_in": "Sign In",
+    "sign_out": "Sign Out",
+    "register": "Register",
+    "my_account": "My Account",
+    "orders": "Orders",
+    "addresses": "Addresses",
+    "profile": "Profile",
+    "order_history": "Order History",
+    "edit_profile": "Edit Profile"
+  },
+  "forms": {
+    "email": "Email",
+    "password": "Password",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "postal_code": "Postal Code",
+    "phone": "Phone",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "seo": {
+    "default_title": "Head Artworks - Premium Art & Design",
+    "default_description": "Discover unique art pieces and premium designs at Head Artworks. Shop our curated collection of contemporary art, sculptures, and creative works.",
+    "default_keywords": "art, design, contemporary art, sculptures, premium art, creative works, Head Artworks"
+  }
+}

@@ -1,5 +1,6 @@
 import {useNonce, getShopAnalytics, Analytics} from '@shopify/hydrogen';
 import {VideoProvider} from '~/components/VideoContext';
+import {TranslationProvider} from '~/contexts/TranslationContext';
 import {
   Links,
   Meta,
@@ -77,6 +78,7 @@ export async function loader(args) {
     ...deferredData,
     ...criticalData,
     publicStoreDomain: env.PUBLIC_STORE_DOMAIN,
+    language: args.context.language || 'en', // Add language from i18n middleware
     shop: getShopAnalytics({
       storefront,
       publicStorefrontId: env.PUBLIC_STOREFRONT_ID,
@@ -173,7 +175,9 @@ export function Layout({children}) {
             consent={data.consent}
           >
             <VideoProvider>
-              <PageLayout {...data}>{children}</PageLayout>
+              <TranslationProvider>
+                <PageLayout {...data}>{children}</PageLayout>
+              </TranslationProvider>
             </VideoProvider>
           </Analytics.Provider>
         ) : (

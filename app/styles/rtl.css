@@ -1,0 +1,548 @@
+/* RTL (Right-to-Left) Language Support Styles */
+
+/* Base RTL Layout */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Typography */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  text-align: right;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] div,
+[dir="rtl"] span {
+  text-align: right;
+}
+
+/* Navigation and Menus */
+[dir="rtl"] .header-menu-desktop {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-menu-item {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .header-ctas {
+  flex-direction: row-reverse;
+}
+
+/* Language Selector RTL */
+[dir="rtl"] .language-selector {
+  direction: rtl;
+}
+
+[dir="rtl"] .language-selector .dropdown {
+  right: auto;
+  left: 0;
+  transform-origin: top left;
+}
+
+[dir="rtl"] .advanced-language-selector .language-dropdown {
+  right: auto;
+  left: 0;
+}
+
+/* Forms */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] label {
+  text-align: right;
+  display: block;
+}
+
+/* Buttons */
+[dir="rtl"] .btn {
+  text-align: center;
+}
+
+[dir="rtl"] .btn-group {
+  flex-direction: row-reverse;
+}
+
+/* Product Layout */
+[dir="rtl"] .product-form {
+  text-align: right;
+}
+
+[dir="rtl"] .product-info {
+  text-align: right;
+}
+
+[dir="rtl"] .product-price {
+  text-align: right;
+}
+
+[dir="rtl"] .product-options {
+  text-align: right;
+}
+
+/* Cart */
+[dir="rtl"] .cart-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cart-item-info {
+  text-align: right;
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .cart-summary {
+  text-align: right;
+}
+
+/* Grid Layouts */
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .grid > * {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Flexbox Adjustments */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .justify-start {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .justify-end {
+  justify-content: flex-start;
+}
+
+/* Margins and Padding */
+[dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+
+[dir="rtl"] .mr-1 { margin-right: 0; margin-left: 0.25rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+
+[dir="rtl"] .pl-1 { padding-left: 0; padding-right: 0.25rem; }
+[dir="rtl"] .pl-2 { padding-left: 0; padding-right: 0.5rem; }
+[dir="rtl"] .pl-3 { padding-left: 0; padding-right: 0.75rem; }
+[dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+
+[dir="rtl"] .pr-1 { padding-right: 0; padding-left: 0.25rem; }
+[dir="rtl"] .pr-2 { padding-right: 0; padding-left: 0.5rem; }
+[dir="rtl"] .pr-3 { padding-right: 0; padding-left: 0.75rem; }
+[dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+
+/* Borders */
+[dir="rtl"] .border-l { border-left: none; border-right: 1px solid; }
+[dir="rtl"] .border-r { border-right: none; border-left: 1px solid; }
+
+/* Positioning */
+[dir="rtl"] .left-0 { left: auto; right: 0; }
+[dir="rtl"] .right-0 { right: auto; left: 0; }
+
+/* Icons and Arrows */
+[dir="rtl"] .icon-arrow-right::before {
+  content: "←";
+}
+
+[dir="rtl"] .icon-arrow-left::before {
+  content: "→";
+}
+
+[dir="rtl"] .icon-directional {
+  transform: scaleX(-1);
+}
+
+/* Dropdown Menus */
+[dir="rtl"] .dropdown-menu {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .dropdown-item {
+  text-align: right;
+}
+
+/* Breadcrumbs */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumb-separator::before {
+  content: "\\";
+}
+
+/* Tables */
+[dir="rtl"] table {
+  direction: rtl;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
+
+[dir="rtl"] .table-actions {
+  text-align: left;
+}
+
+/* Search */
+[dir="rtl"] .search-form {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .search-input {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .search-button {
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+/* Filters */
+[dir="rtl"] .filter-sidebar {
+  text-align: right;
+}
+
+[dir="rtl"] .filter-group {
+  text-align: right;
+}
+
+[dir="rtl"] .filter-option {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .filter-option input {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Footer */
+[dir="rtl"] .footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-social {
+  flex-direction: row-reverse;
+}
+
+/* Modal and Overlays */
+[dir="rtl"] .modal-content {
+  text-align: right;
+}
+
+[dir="rtl"] .modal-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .modal-close {
+  right: auto;
+  left: 1rem;
+}
+
+/* Notifications */
+[dir="rtl"] .notification {
+  text-align: right;
+}
+
+[dir="rtl"] .notification-close {
+  right: auto;
+  left: 0.5rem;
+}
+
+/* Progress Bars */
+[dir="rtl"] .progress-bar {
+  direction: rtl;
+}
+
+[dir="rtl"] .progress-fill {
+  right: 0;
+  left: auto;
+}
+
+/* Tabs */
+[dir="rtl"] .tab-list {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .tab-content {
+  text-align: right;
+}
+
+/* Cards */
+[dir="rtl"] .card {
+  text-align: right;
+}
+
+[dir="rtl"] .card-header {
+  text-align: right;
+}
+
+[dir="rtl"] .card-body {
+  text-align: right;
+}
+
+[dir="rtl"] .card-footer {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+/* Specific Component Overrides */
+
+/* Translation Dashboard RTL */
+[dir="rtl"] .translation-dashboard {
+  direction: rtl;
+}
+
+[dir="rtl"] .dashboard-nav {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .stats-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .stat-card {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+[dir="rtl"] .activity-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .activity-content {
+  text-align: right;
+}
+
+/* Product Grid RTL */
+[dir="rtl"] .product-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .product-item {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Collection Layout RTL */
+[dir="rtl"] .collection-header {
+  text-align: right;
+}
+
+[dir="rtl"] .collection-filters {
+  text-align: right;
+}
+
+/* Blog Layout RTL */
+[dir="rtl"] .blog-post {
+  text-align: right;
+}
+
+[dir="rtl"] .blog-meta {
+  flex-direction: row-reverse;
+}
+
+/* Account Pages RTL */
+[dir="rtl"] .account-nav {
+  text-align: right;
+}
+
+[dir="rtl"] .account-content {
+  text-align: right;
+}
+
+/* Responsive RTL Adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .mobile-menu {
+    right: auto;
+    left: 0;
+  }
+  
+  [dir="rtl"] .mobile-menu-toggle {
+    right: auto;
+    left: 1rem;
+  }
+  
+  [dir="rtl"] .mobile-search {
+    text-align: right;
+  }
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  [dir="rtl"] .text-left {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .text-right {
+    text-align: left;
+  }
+}
+
+/* Print Styles for RTL */
+@media print {
+  [dir="rtl"] * {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+}
+
+/* High Contrast Mode RTL */
+@media (prefers-contrast: high) {
+  [dir="rtl"] .border-l {
+    border-right: 2px solid;
+    border-left: none;
+  }
+  
+  [dir="rtl"] .border-r {
+    border-left: 2px solid;
+    border-right: none;
+  }
+}
+
+/* Reduced Motion RTL */
+@media (prefers-reduced-motion: reduce) {
+  [dir="rtl"] .icon-directional {
+    transform: none;
+  }
+  
+  [dir="rtl"] .dropdown {
+    transition: none;
+  }
+}
+
+/* Dark Mode RTL Adjustments */
+@media (prefers-color-scheme: dark) {
+  [dir="rtl"] .dark-mode-toggle {
+    right: auto;
+    left: 1rem;
+  }
+}
+
+/* Focus Styles for RTL */
+[dir="rtl"] *:focus {
+  outline-offset: -2px;
+}
+
+[dir="rtl"] input:focus,
+[dir="rtl"] textarea:focus,
+[dir="rtl"] select:focus {
+  box-shadow: -2px 0 0 0 #3b82f6;
+}
+
+/* Animation Adjustments for RTL */
+[dir="rtl"] .slide-in-right {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+[dir="rtl"] .slide-in-left {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes for RTL */
+.rtl-hidden {
+  display: none;
+}
+
+[dir="rtl"] .rtl-hidden {
+  display: block;
+}
+
+.ltr-hidden {
+  display: block;
+}
+
+[dir="rtl"] .ltr-hidden {
+  display: none;
+}
+
+.rtl-flip {
+  transform: scaleX(1);
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Text Direction Utilities */
+.force-ltr {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.force-rtl {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Number and Date Display */
+[dir="rtl"] .number-display,
+[dir="rtl"] .date-display,
+[dir="rtl"] .price-display {
+  direction: ltr;
+  text-align: right;
+  display: inline-block;
+}
+
+/* URL and Email Display */
+[dir="rtl"] .url-display,
+[dir="rtl"] .email-display {
+  direction: ltr;
+  text-align: left;
+  display: inline-block;
+}

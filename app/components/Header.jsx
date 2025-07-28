@@ -4,6 +4,8 @@ import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
 import {useVideoContext} from '~/components/VideoContext';
 import {DarkModeToggle} from '~/components/DarkModeToggle';
+import LanguageSelector from '~/components/LanguageSelector';
+import CurrencySelector from '~/components/CurrencySelector';
 
 /**
  * @param {HeaderProps}
@@ -137,10 +139,11 @@ function HeaderCtas({isLoggedIn, cart}) {
       </NavLink>
       <SearchToggle />
       <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <LanguageSelector />
+      <CurrencySelector />
       <CartToggle cart={cart} />
     </nav>
   );
-}
 }
 
 function HeaderMenuMobileToggle() {
