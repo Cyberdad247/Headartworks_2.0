@@ -1,0 +1,18 @@
+{
+  "title": "Organic Ingredients",
+  "content": "We source only the finest organic ingredients, ensuring that our products are not only effective but also safe and environmentally responsible.",
+  "features": [
+    {
+      "name": "100% Natural",
+      "description": "All ingredients are sourced from certified organic suppliers"
+    },
+    {
+      "name": "Eco-Friendly",
+      "description": "Sustainable packaging and environmentally conscious production"
+    },
+    {
+      "name": "Cruelty-Free",
+      "description": "Never tested on animals, certified cruelty-free"
+    }
+  ]
+}

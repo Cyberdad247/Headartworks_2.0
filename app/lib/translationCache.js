@@ -81,7 +81,7 @@ export async function loadTranslations(language) {
   }
   
   // Load translations
-  const promise = import(`~/translations/${language}.json`)
+  const promise = import(/* @vite-ignore */ `~/translations/${language}.json`)
     .then(module => {
       const translations = module.default || module;
       translationCache.set(cacheKey, translations);

@@ -1,0 +1,86 @@
+.login-form,
+.register,
+.account-recover {
+  max-width: 32rem;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+.login-form fieldset,
+.register fieldset,
+.account-recover fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.login-form label,
+.register label,
+.account-recover label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.login-form input,
+.register input,
+.account-recover input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+.login-form button,
+.register button,
+.account-recover button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  color: var(--color-primary-contrast);
+  font-weight: 600;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-form button:hover,
+.register button:hover,
+.account-recover button:hover {
+  background: var(--color-primary-dark);
+}
+
+.login-footer,
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+}
+
+.login-footer a,
+.auth-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.login-footer a:hover,
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: var(--color-error);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.success {
+  color: var(--color-success);
+  margin-top: 1rem;
+  text-align: center;
+}

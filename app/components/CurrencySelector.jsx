@@ -1,18 +1,14 @@
 import {Suspense} from 'react';
-import {useQuery} from '@shopify/hydrogen';
-import {MARKETS_QUERY} from '~/graphql/marketsQuery';
 
 export function CurrencySelector() {
-  const {data} = useQuery(MARKETS_QUERY);
-  const countries = data?.localization?.availableCountries || [];
-
-  // Get unique currencies across all countries
-  const currencies = countries.reduce((acc, country) => {
-    if (!acc.some(c => c.isoCode === country.currency.isoCode)) {
-      acc.push(country.currency);
-    }
-    return acc;
-  }, []);
+  // Simplified currency selector with common currencies
+  // In a real implementation, this would fetch from your storefront's available currencies
+  const currencies = [
+    { isoCode: 'USD', name: 'US Dollar' },
+    { isoCode: 'EUR', name: 'Euro' },
+    { isoCode: 'GBP', name: 'British Pound' },
+    { isoCode: 'CAD', name: 'Canadian Dollar' },
+  ];
 
   return (
     <div className="currency-selector">

@@ -1,6 +1,8 @@
 import {Link} from '@shopify/hydrogen';
 import {Image} from '@shopify/hydrogen';
 
+import { Button } from "../app/components/ui/Button";
+
 export function CTA({
   title = "Elevate Your Space with Head Art Works",
   description = "Discover our handcrafted pieces that blend tradition with modern aesthetics.",
@@ -54,15 +56,18 @@ export function CTA({
           <div className={`${imageAlignment !== 'none' ? 'md:w-1/2' : 'max-w-2xl mx-auto'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
             <p className="text-lg mb-8">{description}</p>
-            <Link 
-              to={buttonUrl}
-              className="cta-button inline-block px-8 py-3 rounded-md font-medium transition-all duration-300"
-              style={{
-                backgroundColor: buttonColor,
-                color: buttonTextColor
-              }}
-            >
-              {buttonText}
+            <Link to={buttonUrl}>
+              <Button
+                variant="default"
+                size="lg"
+                className="cta-button"
+                style={{
+                  backgroundColor: buttonColor,
+                  color: buttonTextColor
+                }}
+              >
+                {buttonText}
+              </Button>
             </Link>
           </div>
           

@@ -1,12 +1,12 @@
 import {Suspense, useState, useEffect, useRef} from 'react';
-import {useQuery} from '@shopify/hydrogen';
+import {useLoaderData} from '@remix-run/react';
 import {MARKETS_QUERY} from '~/graphql/marketsQuery';
 import {trackLanguageSwitch} from '~/lib/analytics';
 import {useTranslation} from '~/contexts/TranslationContext';
 import '~/styles/language-selector.css';
 
 export function LanguageSelector() {
-  const {data} = useQuery(MARKETS_QUERY);
+  const data = useLoaderData();
   const {language: contextLanguage} = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(contextLanguage || 'en');

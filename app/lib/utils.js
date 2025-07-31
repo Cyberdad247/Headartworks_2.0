@@ -1,3 +1,15 @@
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+/**
+ * Utility for merging Tailwind classes with clsx and tailwind-merge
+ * @param {...*} inputs - Class names to merge
+ * @returns {string} Merged class string
+ */
+export function cn(...inputs) {
+  return twMerge(clsx(inputs))
+}
+
 /**
  * Creates a debounced function that delays invoking func until after wait milliseconds
  * @param {Function} func - The function to debounce

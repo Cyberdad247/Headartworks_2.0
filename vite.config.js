@@ -20,6 +20,10 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  server: {
+    host: true,
+    port: 3000,
+  },
   build: {
     // Allow a strict Content-Security-Policy
     // withtout inlining assets as base64:

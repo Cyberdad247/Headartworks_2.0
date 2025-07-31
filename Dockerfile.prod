@@ -1,0 +1,28 @@
+# Production Dockerfile
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy source code first
+COPY . .
+
+# Create a basic .env file for development
+RUN echo "NODE_ENV=production" > .env && \
+    echo "SESSION_SECRET=prod-session-secret-123" >> .env && \
+    echo "PUBLIC_STOREFRONT_API_TOKEN=demo-token" >> .env && \
+    echo "PRIVATE_STOREFRONT_API_TOKEN=demo-private-token" >> .env && \
+    echo "PUBLIC_STORE_DOMAIN=demo-store.myshopify.com" >> .env && \
+    echo "PUBLIC_STOREFRONT_ID=demo-storefront-id" >> .env
+
+# Install all dependencies
+RUN npm install
+
+# Build the application
+RUN npm run build
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start the preview server
+CMD ["npm", "run", "preview"]

@@ -1,4 +1,4 @@
-import {gql} from '@shopify/hydrogen';
+import {gql} from 'graphql-tag';
 
 export const MARKETS_QUERY = gql`
   query Markets {

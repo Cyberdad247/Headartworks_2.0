@@ -1,4 +1,4 @@
-import { json } from '@remix-run/node';
+import { json } from '@shopify/remix-oxygen';
 
 /**
  * API route for Translation Memory operations.

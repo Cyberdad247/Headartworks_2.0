@@ -1,4 +1,4 @@
-import {getSession, commitSession} from '~/lib/session';
+import {AppSession} from '~/lib/session';
 import {storefrontRedirect} from '@shopify/hydrogen';
 
 const SUPPORTED_LANGUAGES = ['en', 'es', 'fr'];
@@ -53,8 +53,8 @@ export function i18nMiddleware() {
 }
 
 export async function handleI18n(request, env, executionContext) {
+  const session = await AppSession.init(request, [env.SESSION_SECRET]);
   const url = new URL(request.url);
-  const session = await getSession(request.headers.get('Cookie'));
   const urlLang = url.pathname.split('/')[1];
   let language = DEFAULT_LANGUAGE;
 
@@ -77,7 +77,9 @@ export async function handleI18n(request, env, executionContext) {
     }
   }
 
-  // If URL doesn't match detected language, redirect
+  // For now, skip redirect to avoid storefront issues during development
+  // TODO: Implement proper i18n routing after storefront is configured
+  /*
   if (!url.pathname.startsWith(`/${language}/`) &&
       !['/_data', '/_image'].some(p => url.pathname.startsWith(p))) {
     const newUrl = new URL(url);
@@ -89,10 +91,11 @@ export async function handleI18n(request, env, executionContext) {
       redirectTo: newUrl.toString(),
     });
   }
+  */
 
   // Store language in session
   session.set('language', language);
-  const cookie = await commitSession(session);
+  const cookie = await session.commit();
 
   return {language, cookie};
 }

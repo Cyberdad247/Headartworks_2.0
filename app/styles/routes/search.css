@@ -1,0 +1,29 @@
+.search-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.search-page h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.error-message {
+  background-color: var(--error-bg, #fef2f2);
+  color: var(--error-text, #dc2626);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--error-border, #fca5a5);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .error-message {
+    background-color: var(--error-bg-dark, rgba(220, 38, 38, 0.1));
+    border-color: var(--error-border-dark, rgba(220, 38, 38, 0.2));
+  }
+}

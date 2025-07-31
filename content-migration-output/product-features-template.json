@@ -1,0 +1,17 @@
+{
+  "craftsmanship": {
+    "image": "/images/craftsmanship-badge.png",
+    "title": "Premium Craftsmanship",
+    "description": "Handcrafted with attention to detail"
+  },
+  "organic": {
+    "image": "/images/organic-badge.png",
+    "title": "100% Organic",
+    "description": "Made with certified organic ingredients"
+  },
+  "sustainable": {
+    "image": "/images/sustainable-badge.png",
+    "title": "Sustainable",
+    "description": "Environmentally responsible production"
+  }
+}

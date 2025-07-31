@@ -3,7 +3,7 @@ import {Await, NavLink, useAsyncValue} from '@remix-run/react';
 import {useAnalytics, useOptimisticCart} from '@shopify/hydrogen';
 import {useAside} from '~/components/Aside';
 import {useVideoContext} from '~/components/VideoContext';
-import {DarkModeToggle} from '~/components/DarkModeToggle';
+import {ThemeToggle} from '~/components/ThemeToggle';
 import LanguageSelector from '~/components/LanguageSelector';
 import CurrencySelector from '~/components/CurrencySelector';
 
@@ -12,7 +12,7 @@ import CurrencySelector from '~/components/CurrencySelector';
  */
 export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
   const {shop, menu} = header;
-  const {videoEnded, scrollPosition, darkMode, toggleDarkMode} = useVideoContext();
+  const {videoEnded, scrollPosition} = useVideoContext();
   const [headerClass, setHeaderClass] = useState('header hidden');
   const [logoSize, setLogoSize] = useState(1);
   
@@ -125,7 +125,7 @@ export function HeaderMenu({
  * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'>}
  */
 function HeaderCtas({isLoggedIn, cart}) {
-  const {darkMode, toggleDarkMode} = useVideoContext();
+  const {} = useVideoContext();
   
   return (
     <nav className="header-ctas" role="navigation">
@@ -138,7 +138,7 @@ function HeaderCtas({isLoggedIn, cart}) {
         </Suspense>
       </NavLink>
       <SearchToggle />
-      <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <ThemeToggle />
       <LanguageSelector />
       <CurrencySelector />
       <CartToggle cart={cart} />

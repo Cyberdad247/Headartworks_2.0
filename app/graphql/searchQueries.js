@@ -1,4 +1,4 @@
-import {gql} from '@shopify/hydrogen';
+import {gql} from 'graphql-tag';
 
 /**
  * Enhanced search fragments with more fields

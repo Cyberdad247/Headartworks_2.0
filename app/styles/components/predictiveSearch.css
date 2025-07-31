@@ -1,0 +1,154 @@
+.predictive-search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.predictive-search .search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--background);
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.predictive-search .search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.search-loading {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.search-results-list {
+  padding: 0.5rem;
+}
+
+.search-result-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.search-result-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-result-info h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.search-result-price {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.view-all-link {
+  display: block;
+  padding: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary);
+  background-color: var(--background-lighter);
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.view-all-link:hover {
+  background-color: var(--hover-bg);
+}
+
+.no-results {
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .search-results-dropdown {
+    background-color: var(--background-darker);
+    border-color: var(--border-dark);
+  }
+
+  .search-result-item:hover {
+    background-color: var(--hover-bg-dark);
+  }
+
+  .view-all-link {
+    background-color: var(--background-dark);
+    border-color: var(--border-dark);
+  }
+
+  .view-all-link:hover {
+    background-color: var(--hover-bg-dark);
+  }
+}

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  headartworks-app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - SESSION_SECRET=your-session-secret-here
+      - PUBLIC_STOREFRONT_API_TOKEN=your-token-here
+      - PRIVATE_STOREFRONT_API_TOKEN=your-private-token-here
+      - PUBLIC_STORE_DOMAIN=your-store.myshopify.com
+      - PUBLIC_STOREFRONT_ID=your-storefront-id
+    volumes:
+      # Mount source code for development (optional - comment out for production)
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"] 
+      timeout: 3s
+      interval: 30s
+      retries: 3
+      start_period: 40s

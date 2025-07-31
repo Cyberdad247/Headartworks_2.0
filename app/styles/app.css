@@ -1,3 +1,13 @@
+/* Import component styles - must come first */
+@import 'hero.css';
+@import 'product-animations.css';
+@import 'media-components.css';
+@import 'blog-media.css';
+@import 'header-transitions.css';
+@import 'dark-mode.css';
+@import 'infinite-scroll-gallery.css';
+@import 'filters.css';
+
 :root {
   --aside-width: 400px;
   --cart-aside-summary-height-with-discount: 300px;
@@ -11,16 +21,6 @@
   --text-color: #000;
   --focus-color: #0066ff;
 }
-
-/* Import component styles */
-@import 'hero.css';
-@import 'product-animations.css';
-@import 'media-components.css';
-@import 'blog-media.css';
-@import 'header-transitions.css';
-@import 'dark-mode.css';
-@import 'infinite-scroll-gallery.css';
-@import 'filters.css';
 
 /* App-specific styles */
 

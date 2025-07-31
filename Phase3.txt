@@ -1,0 +1,60 @@
+# Head Artworks Shopify Hydrogen Migration: Phase 3 Specialized Enhancements Tasks
+
+## Purpose: Tracks current tasks, backlog, and sub-tasks for Phase 3, focusing on Print-on-Demand (POD) integration and other advanced features.
+
+### **Phase 3: Specialized Enhancements (Immediate Actions)**
+
+*   [ ] **Task 9.1: Print-on-Demand (POD) Provider Integration Setup**
+    *   [ ] **Sub-task 9.1.1:** Finalize selection of POD provider (e.g., Printful, Printify).
+    *   [ ] **Sub-task 9.1.2:** Obtain and securely configure POD provider API credentials in `.env` and Hydrogen environment.
+    *   [ ] **Sub-task 9.1.3:** Establish initial API connection and test basic authentication.
+*   [ ] **Task 9.2: POD Product Data Management & Sync**
+    *   [ ] **Sub-task 9.2.1:** Define necessary Shopify Metafields for POD-specific product attributes (e.g., design file IDs, print areas, mockup URLs, POD product IDs).
+    *   [ ] **Sub-task 9.2.2:** Develop Admin GraphQL mutations or custom scripts to push POD product data (from provider) into Shopify as products/variants with metafields.
+    *   [ ] **Sub-task 9.2.3:** Implement Storefront GraphQL queries to fetch POD-specific metafields for display on product detail and collection pages.
+*   [ ] **Task 9.3: Frontend Display for POD Products**
+    *   [ ] **Sub-task 9.3.1:** Modify `products.$handle.tsx` to handle conditional rendering for POD products (e.g., display POD-specific mockups, product variant options unique to POD).
+    *   [ ] **Sub-task 9.3.2:** Update collection pages (`collections.$handle.tsx`) to correctly display POD product thumbnails and basic information.
+    *   [ ] **Sub-task 9.3.3:** Implement dynamic rendering of POD mockups based on selected variants or customization.
+*   [ ] **Task 9.4: Product Customization Interface (If Applicable)**
+    *   [ ] **Sub-task 9.4.1:** Research and integrate a client-side JavaScript library for interactive product customization (e.g., Fabric.js, Konva.js, or a dedicated POD customization SDK).
+    *   [ ] **Sub-task 9.4.2:** Develop React client components (`'use client'`) for the customization interface (e.g., text input, font/color selectors, image upload/placement).
+    *   [ ] **Sub-task 9.4.3:** Implement real-time preview logic, updating the product mockup as the user customizes.
+    *   [ ] **Sub-task 9.4.4:** Integrate image upload functionality to a secure storage (e.g., Shopify Files, Cloudinary) if user image uploads are permitted.
+*   [ ] **Task 9.5: Add-to-Cart & Checkout for POD Products**
+    *   [ ] **Sub-task 9.5.1:** Modify `CartForm` inputs in `products.$handle.tsx` to include custom design data (e.g., design JSON, image URLs) as line item properties.
+    *   [ ] **Sub-task 9.5.2:** Ensure custom design data persists through the cart and checkout process.
+    *   [ ] **Sub-task 9.5.3:** Verify that Shopify's checkout receives all necessary POD-specific line item properties.
+*   [ ] **Task 9.6: Automated POD Order Fulfillment**
+    *   [ ] **Sub-task 9.6.1:** Develop a serverless function (e.g., Oxygen Worker `action` or separate worker) that triggers upon successful Shopify order creation.
+    *   [ ] **Sub-task 9.6.2:** The function should extract necessary order and design details and submit the order to the POD provider's API.
+    *   [ ] **Sub-task 9.6.3:** Implement webhook listeners to receive fulfillment status updates (e.g., "printing," "shipped," "delivered") from the POD provider.
+    *   [ ] **Sub-task 9.6.4:** Develop logic to update Shopify order status or add notes/metafields based on POD fulfillment updates.
+*   [ ] **Task 9.7: POD Inventory & Pricing Management**
+    *   [ ] **Sub-task 9.7.1:** Define how POD product inventory will be managed in Shopify (e.g., setting products as "continue selling when out of stock" if virtual, or implementing real-time stock sync).
+    *   [ ] **Sub-task 9.7.2:** Ensure accurate pricing calculations for POD products, including any customization surcharges.
+*   [ ] **Task 9.8: UI/UX & Performance for POD Features**
+    *   [ ] **Sub-task 9.8.1:** Design and implement clear loading states and progress indicators for the customization interface.
+    *   [ ] **Sub-task 9.8.2:** Ensure smooth user experience for dynamic previews, optimizing asset loading.
+    *   [ ] **Sub-task 9.8.3:** Implement clear communication for POD production and shipping times on product pages and during checkout.
+*   [ ] **Task 9.9: Comprehensive Testing for POD Integration**
+    *   [ ] **Sub-task 9.9.1:** Conduct end-to-end testing of the entire POD product lifecycle (product creation, display, customization, add-to-cart, order submission, fulfillment tracking).
+    *   [ ] **Sub-task 9.9.2:** Test various customization options and edge cases.
+    *   [ ] **Sub-task 9.9.3:** Verify data consistency across Shopify and the POD provider.
+*   [ ] **Task 9.10: Performance, SEO, and Accessibility Audit for New Features**
+    *   [ ] **Sub-task 9.10.1:** Re-run Lighthouse audits for POD product pages and customization interfaces.
+    *   [ ] **Sub-task 9.10.2:** Optimize large image assets (e.g., custom uploads, high-res mockups) and client-side JavaScript for the customization tool.
+    *   [ ] **Sub-task 9.10.3:** Ensure all new POD-related UI and functionalities adhere to WCAG 2.1 AA accessibility standards.
+
+### **Phase 3: Future Expansion / Backlog Items (Consider after core POD)**
+
+*   [ ] **Task 9.11: Subscription Models Integration**
+    *   [ ] **Sub-task 9.11.1:** Research Shopify subscription APIs or third-party subscription apps compatible with headless commerce.
+    *   [ ] **Sub-task 9.11.2:** Develop frontend UI for subscription product selection and management.
+    *   [ ] **Sub-task 9.11.3:** Integrate recurring billing and order processing.
+*   [ ] **Task 9.12: Loyalty Programs Implementation**
+    *   [ ] **Sub-task 9.12.1:** Select a headless-compatible loyalty platform.
+    *   [ ] **Sub-task 9.12.2:** Display loyalty points/rewards in customer account portal.
+    *   [ ] **Sub-task 9.12.3:** Integrate earning and redemption mechanisms.
+
+---
